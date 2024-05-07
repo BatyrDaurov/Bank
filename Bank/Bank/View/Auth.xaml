@@ -1,0 +1,47 @@
+﻿<Window x:Class="Bank.Auth"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bank"
+        mc:Ignorable="d"
+        Background="#FFFFFF"
+        Title="Банк" ResizeMode="NoResize" 
+        Height="400" Width="500">
+    <Grid>
+        <!-- Разметка -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Верстка -->
+        <StackPanel Grid.Row="1" >
+            <!-- Заголовок -->
+            <TextBlock FontSize="22" FontWeight="Bold" 
+                   Margin="10"
+                   HorizontalAlignment="Center"
+                   Text="Войти" />
+            
+            <!-- Вход тб -->
+            <StackPanel Width="200" Margin="0 0 0 10">
+                <TextBlock Text="Почта:" />
+                <TextBox FontSize="20" x:Name="name_tb"/>
+            </StackPanel>
+            
+            <!-- Пароль тб -->
+            <StackPanel Width="200">
+                <TextBlock Text="Пароль:" />
+                <TextBox FontSize="20" x:Name="pass_tb"/>
+            </StackPanel>
+
+            <!-- Вход кнопка -->
+            <Button FontSize="18" Margin="0 10 0 0" 
+                    Width="200" Content="Отправить"
+                    x:Name="auth_btn"
+                    Click="auth_btn_Click" Background="#FFA5E887"
+                    />
+
+        </StackPanel>
+    </Grid>
+</Window>

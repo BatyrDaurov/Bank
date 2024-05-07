@@ -1,0 +1,76 @@
+﻿<Window x:Class="Bank.View.Profile"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bank"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="Profile" Height="450" Width="800">
+    <Grid>
+        <!-- Разметка -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Разметка -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Меню -->
+        <Menu Grid.Row="0" Height="30">
+            <MenuItem Header="Аккаунт">
+                <MenuItem Header="Выйти" 
+                          Click="MenuItem_exit"/>
+            </MenuItem>
+        </Menu>
+
+        <!-- Информация о юзере -->
+        <StackPanel  Grid.Row="1" Background="#FFB3F4E9">
+            <TextBlock  HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" 
+                        Margin="10"
+                        FontWeight="Bold"
+                        FontSize="24"
+                         Text="Информация о вас"/>
+            <ListView>
+                <ListViewItem x:Name="role_tb">Ваша роль: </ListViewItem>
+                <ListViewItem x:Name="email_tb">Почта: </ListViewItem>
+            </ListView>
+        </StackPanel>
+        
+        <!-- Информация о тканях для админа -->
+        <StackPanel x:Name="cloths_info_dg"  Grid.Row="1" Grid.Column="1" >
+            <TextBlock  HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" 
+                        Margin="10"
+                        FontWeight="Bold"
+                        FontSize="24"
+                         Text="Ткани"/>
+            <DataGrid x:Name="phonesGrid" AutoGenerateColumns="False" HorizontalGridLinesBrush="DarkGray"
+    RowBackground="LightGray" AlternatingRowBackground="White">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Название ткани" Binding="{Binding Path=title}" Width="150" />
+                    <DataGridHyperlinkColumn Header="Цвет" Binding="{Binding Path=color}" Width="*" />
+                    <DataGridTextColumn Header="Состав" Binding="{Binding Path=compound}" Width="*" />
+                    <DataGridTextColumn Header="В наличии" Binding="{Binding Path=count}" Width="*" />
+                    <DataGridTextColumn Header="Цена (м)" Binding="{Binding Path=price}" Width="*" />
+                </DataGrid.Columns>
+
+            </DataGrid>
+        </StackPanel>
+
+        <!-- Информация о тканях для пользователя -->
+        <StackPanel Visibility="Hidden" x:Name="cloths_dg"  Grid.Row="1" Grid.Column="1" >
+            <TextBlock  HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    Margin="10"
+                    FontWeight="Bold"
+                    FontSize="24"
+                    Text="Не админ обойдешься"/>
+        </StackPanel>
+    </Grid>
+</Window>
