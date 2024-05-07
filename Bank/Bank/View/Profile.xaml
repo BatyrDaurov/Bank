@@ -1,4 +1,4 @@
-﻿<Window x:Class="Bank.View.Profile"
+<Window x:Class="Bank.View.Profile"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -43,7 +43,7 @@
         </StackPanel>
         
         <!-- Информация о тканях для админа -->
-        <StackPanel x:Name="cloths_info_dg"  Grid.Row="1" Grid.Column="1" >
+        <StackPanel Visibility="Hidden" x:Name="cloths_info_dg"  Grid.Row="1" Grid.Column="1" >
             <TextBlock  HorizontalAlignment="Center" 
                         VerticalAlignment="Center" 
                         Margin="10"
@@ -64,13 +64,20 @@
         </StackPanel>
 
         <!-- Информация о тканях для пользователя -->
-        <StackPanel Visibility="Hidden" x:Name="cloths_dg"  Grid.Row="1" Grid.Column="1" >
+        <StackPanel x:Name="cloths_dg"  Grid.Row="1" Grid.Column="1" >
             <TextBlock  HorizontalAlignment="Center" 
                     VerticalAlignment="Center" 
                     Margin="10"
                     FontWeight="Bold"
                     FontSize="24"
-                    Text="Не админ обойдешься"/>
+                    Text="за 1.5 часа это сделать анрил"/>
+
+            <!-- Вход кнопка -->
+            <Button FontSize="18" Margin="0 10 0 0" 
+                    Width="200" Content="Создать"
+                    x:Name="auth_btn"
+                    Click="auth_btn_Click" Background="#FFA5E887"
+                    />
         </StackPanel>
     </Grid>
 </Window>
